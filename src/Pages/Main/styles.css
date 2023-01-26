@@ -1,0 +1,20 @@
+.container-main-header {
+    padding: 15px;
+    margin-bottom: 40px;
+    box-shadow: 0px 1px 10px rgba(72, 61, 139, 0.6);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 100%;
+    max-width: 250px;
+    margin-left: 50px;
+}
+
+.container-user span {
+    color: #483D8B;
+    font-size: 20px;
+    margin-right: 50px;
+}

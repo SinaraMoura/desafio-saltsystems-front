@@ -1,0 +1,103 @@
+.container-signup {
+    height: 100%;
+    width: 100%;
+}
+
+.logo {
+    width: 100%;
+    max-width: 250px;
+    margin-left: 50px
+}
+
+.container-signup-header {
+    padding: 15px;
+    margin-bottom: 40px;
+    box-shadow: 0px 1px 10px rgba(72, 61, 139, 0.6);
+}
+
+.container-cadastro {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+}
+
+.form-cadastro {
+    max-height: 781px;
+    width: 513px;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--ligth);
+}
+
+.form-title-signup {
+    color: #483D8B;
+    font-family: var(--font-rubik);
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 33px;
+    margin-bottom: 20px;
+}
+
+
+.inputs-cadastro {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputs-cadastro input {
+    all: unset;
+    box-sizing: border-box;
+    height: 33px;
+    width: 400px;
+    padding: 5px;
+    margin-bottom: 20px;
+    border: 1px solid #555555;
+    border-radius: 5px;
+}
+
+.inputsCadastro label {
+    margin-bottom: 8px;
+    color: #484848;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0px;
+    text-align: left;
+}
+
+.button-cadastro {
+    all: unset;
+    box-sizing: border-box;
+    height: 53px;
+    width: 400px;
+    border-radius: 5px;
+    background-color: #483D8B;
+    color: #fff;
+    font-family: var(--font-rubik);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 17px;
+    letter-spacing: 0em;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.sign-up-span {
+    font-family: var(--font-lato);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 17px;
+    letter-spacing: 0px;
+    text-align: center;
+    color: #483D8B;
+}
+
+.linkSignup {
+    all: unset;
+    cursor: pointer;
+}

@@ -1,9 +1,11 @@
 import { Route, Routes } from 'react-router-dom';
 import { useState } from 'react';
 import Contacts from './components/Contacts';
-import Form from './components/Form';
 import UserContext from './context/UserContext';
 import 'react-toastify/dist/ReactToastify.css';
+import SignIn from './Pages/SignIn';
+import SignUp from './Pages/SignUp';
+import Main from './Pages/Main';
 
 export default function MainRouter() {
     const [idUser, setIdUser] = useState(0);
@@ -17,9 +19,13 @@ export default function MainRouter() {
     return (
         <UserContext.Provider value={valuesProvider}>
             <Routes>
-                <Route exact path="/" element={<Form />} />
+                <Route path='/sign-in' element={<SignIn />} />
+                <Route path='/' element={<SignIn />} />
+                {/* <Route exact path="/" element={<Form />} /> */}
+                <Route path='/sign-up' element={<SignUp />} />
+                <Route path='/main' element={<Main />} />
                 <Route exact path='/contacts' element={<Contacts />} />
-                <Route exact path='/form' element={<Form />} />
+                {/* <Route exact path='/form' element={<Form />} /> */}
             </Routes>
         </UserContext.Provider>
     )

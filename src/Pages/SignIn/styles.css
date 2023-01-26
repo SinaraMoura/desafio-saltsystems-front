@@ -1,0 +1,112 @@
+.container-signin {
+    width: 100vw;
+    min-height: 100vh;
+    background-color: #f8f8f9;
+    display: flex;
+}
+
+.image-sign-in {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.image-sign-in img {
+    width: 100%;
+}
+
+.div-form-sign-in {
+    width: 70%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #483D8B;
+}
+
+.sign-in-title {
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 130%;
+    color: #f8f8f9;
+    margin-bottom: 3.2rem;
+    font-family: Montserrat
+}
+
+.form-sign-in {
+    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.div-email-signin,
+.div-pass-signin {
+    display: flex;
+    flex-direction: column;
+}
+
+.label {
+    margin-bottom: 8px;
+    color: #f8f8f9;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0px;
+    text-align: left;
+}
+
+.inputs {
+    all: unset;
+    box-sizing: border-box;
+    height: 33px;
+    width: 400px;
+    padding: 15px;
+    border: 1px solid #f8f8f9;
+    border-radius: 5px;
+}
+
+.inputs::placeholder {
+    font-family: 'Inter';
+    color: #f8f8f9;
+}
+
+.div-pass-signin {
+    position: relative;
+}
+
+.icon-password {
+    position: absolute;
+    top: 35px;
+    right: 1.4rem;
+    cursor: pointer;
+}
+
+.form-sign-in-buttom {
+    all: unset;
+    box-sizing: border-box;
+    height: 40px;
+    width: 400px;
+    color: #f8f8f9;
+    border-radius: 5px;
+    background-color: #da0175;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 17px;
+    letter-spacing: 0em;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.link-to-sign-up {
+    margin: auto;
+    font-size: 18px;
+    color: #f8f8f9;
+}
+
+.link-to-sign-up .link {
+    text-decoration: underline;
+    color: #f8f8f9;
+}
