@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import logo from "../../assets/logo_salt.png";
+import linkedin from "../../assets/linkedin.png";
+import github from "../../assets/github.png";
 import Contacts from "../../components/Contacts";
 import Messages from "../../components/Messages";
 import api from "../../service/api";
@@ -8,10 +10,10 @@ import './styles.css';
 
 export default function Main() {
     const token = getItem('token');
-    const [user, setUser] = useState({});
     const headers = {
         Authorization: `Bearer ${token}`
     }
+    const [user, setUser] = useState({});
 
     async function handleUsuario() {
         try {
@@ -25,17 +27,30 @@ export default function Main() {
         handleUsuario();
     }, []);
     return (
-        <div>
+        <div className="container-main">
             <header className="container-main-header">
                 <div>
                     <img className="logo" src={logo} alt="logo salt" />
                 </div>
                 <div className="container-user">
-                    <span>nome usuario</span>
+                    <span>{user.name}</span>
                 </div>
             </header>
-            <Contacts />
-            <Messages />
+            <div className="container-main-components">
+                <Contacts />
+                <Messages />
+            </div>
+            <footer className="footer">
+                <div className="footer-social">
+                    <a href="https://www.linkedin.com/in/sinaratibel/" target="_blank">
+                        <img src={linkedin} alt="icon linkedin" />
+                    </a>
+                    <a href="https://github.com/SinaraMoura" target="_blank">
+                        <img src={github} alt="icon github" />
+                    </a>
+                </div>
+                <span>© 2023 - Sinara Tibel - Todos os direitos reservados.</span>
+            </footer>
         </div>
     )
 }

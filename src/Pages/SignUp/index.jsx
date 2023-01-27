@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import api from '../../service/api';
 import logo from "../../assets/logo_salt.png";
 import "./styles.css"
+import { toast } from "react-toastify";
 
 export default function SignUp() {
     const [form, setForm] = useState({ name: '', email: '', password: '' });
@@ -16,16 +17,26 @@ export default function SignUp() {
     }
 
     async function handleSubmit(e) {
+        e.preventDefault();
+
+        if (!form.name) {
+            toast.error("Campo nome é obrigatório");
+            return;
+        }
+        if (!form.email) {
+            toast.error("Campo e-mail é obrigatório");
+            return;
+        }
+        if (!form.password) {
+            toast.error("Campo senha é obrigatório");
+            return;
+        };
+
         try {
-            e.preventDefault();
-
-            if (!form.name || !form.email || !form.password) return;
-
-            const response = await api.post('/users', { ...form });
-            console.log(response);
+            await api.post('/users', { ...form });
             navigate('/sign-in');
         } catch (error) {
-            console.log(error);
+            toast.error(error.response.data.message);
         }
     }
 
@@ -49,7 +60,6 @@ export default function SignUp() {
                             onChange={handleForm}
                             id='name'
                             type="text"
-                            required
                         />
                     </div>
 
@@ -61,7 +71,6 @@ export default function SignUp() {
                             onChange={handleForm}
                             id='email'
                             type="email"
-                            required
                         />
                     </div>
                     <div className='inputs-cadastro'>
@@ -72,7 +81,6 @@ export default function SignUp() {
                             onChange={handleForm}
                             id='password'
                             type="password"
-                            required
                         />
                     </div>
                     <button className='button-cadastro'>CADASTRAR</button>

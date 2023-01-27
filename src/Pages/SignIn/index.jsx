@@ -5,11 +5,13 @@ import iconHidePassword from "../../assets/icon-password-hide.svg";
 import iconShowPassword from "../../assets/icon-password-show.svg";
 import { setItem } from "../../Utils/storage"
 import "./styles.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export default function SignIn() {
     const [form, setForm] = useState({ email: '', password: '' });
     const [showPassword, setShowPassword] = useState(false);
+    const navigate = useNavigate();
 
     function handleForm(e) {
         setForm({
@@ -20,16 +22,25 @@ export default function SignIn() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        try {
-            const response = await api.post("/users", { ...form });
-            const { token, user } = response.data;
+        if (!form.email) {
+            toast.error("O e-mail precisa ser informado");
+            return;
+        }
 
-            setItem('token', token);
-            setItem('user', user.name);
+        if (!form.password) {
+            toast.error("A senha precisa ser informada");
+            return;
+        }
+
+        try {
+            const response = await api.post("/login", { ...form });
+
+            setItem('token', response.data.token);
+            setItem('user', response.data.token);
             setForm({ email: '', password: '' });
             navigate('/main');
         } catch (error) {
-            console.log(error.message)
+            toast.error(error.message);
         }
     }
     return (

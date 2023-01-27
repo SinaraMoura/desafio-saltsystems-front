@@ -1,14 +1,18 @@
 .container-messages {
     display: flex;
     flex-direction: column;
-    width: 70%;
     max-height: calc(100vh - 4rem);
     border: 1px solid #fff;
     border-radius: 10px;
-    margin: 1rem 1rem 0 0;
     padding: 2px;
     position: relative;
     background: #fff;
+    height: 100%;
+    width: 70%;
+    background-color: #f8f8f8;
+    padding: 30px 20px;
+    box-shadow: 0px 1px 10px #808080;
+    border-radius: 10px;
 }
 
 .info-contact {
@@ -17,18 +21,18 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #E8BBA8;
+    margin-bottom: 20px;
 }
 
 .info-contact h1 {
     margin-left: 30px;
-    color: #2D2C2A;
+    color: #483D8B;
 }
 
 .info-contact p {
     margin-right: 30px;
     font-weight: bold;
-    color: #2D2C2A;
+    color: #483D8B;
 }
 
 .messages {
@@ -40,7 +44,9 @@
     margin-bottom: 50px;
     padding: 15px;
     overflow-y: auto;
-    background: #fff;
+    padding: 15px;
+    box-shadow: 0px 1px 10px rgba(72, 61, 139, 0.6);
+    border-radius: 8px;
 }
 
 .input-messages {
