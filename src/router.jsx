@@ -19,13 +19,11 @@ export default function MainRouter() {
     return (
         <UserContext.Provider value={valuesProvider}>
             <Routes>
-                <Route path='/sign-in' element={<SignIn />} />
-                <Route path='/' element={<SignIn />} />
-                {/* <Route exact path="/" element={<Form />} /> */}
-                <Route path='/sign-up' element={<SignUp />} />
-                <Route path='/main' element={<Main />} />
+                <Route exact path='/sign-in' element={<SignIn />} />
+                <Route exact path='/' element={<SignIn />} />
+                <Route exact path='/sign-up' element={<SignUp />} />
+                <Route exact path='/main' element={<Main />} />
                 <Route exact path='/contacts' element={<Contacts />} />
-                {/* <Route exact path='/form' element={<Form />} /> */}
             </Routes>
         </UserContext.Provider>
     )

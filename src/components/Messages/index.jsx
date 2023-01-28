@@ -4,6 +4,7 @@ import { useContext, useState } from "react";
 import img from '../../assets/img-message.jpg';
 import './styles.css';
 import { getItem } from "../../Utils/storage";
+import { toast } from "react-toastify";
 
 export default function Messages() {
     const token = getItem('token');
@@ -46,7 +47,7 @@ export default function Messages() {
             setMessages(responseListMessages.data)
             setInput('');
         } catch (error) {
-            console.log(error.message);;
+            toast.error(error.message);
         }
     }
     return (

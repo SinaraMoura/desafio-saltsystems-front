@@ -34,9 +34,10 @@ export default function SignIn() {
 
         try {
             const response = await api.post("/login", { ...form });
+            const { name, token } = response.data;
 
-            setItem('token', response.data.token);
-            setItem('user', response.data.token);
+            setItem('token', token);
+            setItem('user', name);
             setForm({ email: '', password: '' });
             navigate('/main');
         } catch (error) {

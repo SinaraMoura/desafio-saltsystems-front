@@ -2,7 +2,6 @@ import api from "../../service/api";
 import UserContext from "../../context/UserContext";
 import close from "../../assets/close.png";
 import { useState, useContext, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './styles.css';
@@ -10,7 +9,7 @@ import { getItem } from "../../Utils/storage";
 
 export default function ModalNewContact({ setModalNewContact }) {
     const [form, setForm] = useState({ name: '', phone_number: '' });
-    const { componentRender, setComponentRender, setMessages } = useContext(UserContext);
+    const { setMessages } = useContext(UserContext);
     const token = getItem('token');
     const headers = {
         Authorization: `Bearer ${token}`

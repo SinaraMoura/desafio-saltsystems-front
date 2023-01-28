@@ -47,8 +47,6 @@ export default function Main() {
             <div className="container-main-components">
                 <Contacts />
                 <Messages />
-
-
             </div>
             <footer className="footer">
                 <div className="footer-social">

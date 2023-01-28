@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
 import UserContext from "../../context/UserContext";
 import api from "../../service/api";
 import { getItem } from "../../Utils/storage";
@@ -9,7 +8,7 @@ import "./styles.css";
 export default function Contacts() {
     const [modalNewContact, setModalNewContact] = useState(false);
     const token = getItem('token');
-    const { setIdUser, contacts, setContacts, name, setName, messages, setMessages, phone, setPhone, setComponentRender } = useContext(UserContext);
+    const { setIdUser, contacts, setContacts, name, setName, setMessages, setPhone, setComponentRender } = useContext(UserContext);
     const headers = {
         Authorization: `Bearer ${token}`
     }

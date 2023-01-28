@@ -1,6 +1,5 @@
 import api from "../../service/api";
-import UserContext from "../../context/UserContext";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import close from "../../assets/close.png";
 import './styles.css';
 import { getItem } from "../../Utils/storage";
@@ -14,27 +13,33 @@ export default function Bot({ setModalBot }) {
     const [messagesBot, setMessagesBot,] = useState([]);
     const [input, setInput] = useState("");
 
-    function handleCloseModalBot() {
+    const data = {
+        id_origem: 0,
+        message: input
+    }
+
+    async function handleCloseModalBot() {
         setModalBot(false);
+
+        try {
+            const response = await api.delete(`/bot/${data.id_origem}`, { headers });
+        } catch (error) {
+            toast.error(error?.response?.data?.message);
+        }
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         if (!input) return;
-        const data = {
-            id_origem: 0,
-            message: input
-        }
 
         try {
             const response = await api.post("/bot", data, { headers });
             const responseListMessages = await api.get(`/bot/${data.id_origem}`, { headers })
-            console.log(response.data);
+
             setMessagesBot(responseListMessages.data);
             setInput('');
         } catch (error) {
-            console.log(error);
             toast.error(error?.response?.data?.message);
         }
     }
