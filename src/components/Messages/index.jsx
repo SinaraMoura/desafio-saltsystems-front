@@ -1,7 +1,7 @@
 import api from "../../service/api";
 import UserContext from "../../context/UserContext";
 import { useContext, useState } from "react";
-import img from '../../assets/img.jpeg';
+import img from '../../assets/img-message.jpg';
 import './styles.css';
 import { getItem } from "../../Utils/storage";
 
@@ -51,28 +51,28 @@ export default function Messages() {
     }
     return (
         <div className="container-messages">
-            {/* {componentRender ? */}
-            <>
-                <div className="info-contact">
-                    <h1>{name}</h1>
-                    <p>{maskTelephone(phone)}</p>
-                </div>
-                <div className="messages">
-                    {messages.map(message => {
-                        return <p key={message.id}>{message.message} <span className="data_message">{`${new Date(message.data_message).getHours()}:${new Date(message.data_message).getMinutes()}`}</span></p>;
-                    })}
-                </div>
-                <form onSubmit={handleSubmit}>
-                    <input
-                        className="input-messages"
-                        name="input"
-                        value={input}
-                        onChange={(e) => setInput(e.target.value)}
-                        placeholder="Mensagem" />
-                </form>
-            </>
-            {/* : <img className="img" src={img} /> */}
-            {/* } */}
+            {componentRender ?
+                <>
+                    <div className="info-contact">
+                        <h1>{name}</h1>
+                        <p>{maskTelephone(phone)}</p>
+                    </div>
+                    <div className="messages">
+                        {messages.map(message => {
+                            return <p key={message.id}>{message.message} <span className="data_message">{`${new Date(message.data_message).getHours()}:${new Date(message.data_message).getMinutes()}`}</span></p>;
+                        })}
+                    </div>
+                    <form onSubmit={handleSubmit}>
+                        <input
+                            className="input-messages"
+                            name="input"
+                            value={input}
+                            onChange={(e) => setInput(e.target.value)}
+                            placeholder="Mensagem" />
+                    </form>
+                </>
+                : <img className="img" src={img} />}
+
         </div>
     )
 }

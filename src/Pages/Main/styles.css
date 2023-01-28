@@ -21,6 +21,18 @@
     margin-left: 50px;
 }
 
+.container-user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px
+}
+
+.robo {
+    width: 40px;
+    cursor: pointer;
+}
+
 .container-user span {
     color: #483D8B;
     font-size: 20px;

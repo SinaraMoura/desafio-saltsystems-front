@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import logo from "../../assets/logo_salt.png";
 import linkedin from "../../assets/linkedin.png";
 import github from "../../assets/github.png";
+import robo from "../../assets/robo.png";
 import Contacts from "../../components/Contacts";
 import Messages from "../../components/Messages";
 import api from "../../service/api";
 import { getItem } from "../../Utils/storage";
 import './styles.css';
+import Bot from "../../components/Bot";
 
 export default function Main() {
     const token = getItem('token');
@@ -14,7 +16,11 @@ export default function Main() {
         Authorization: `Bearer ${token}`
     }
     const [user, setUser] = useState({});
+    const [modalBot, setModalBot] = useState(false);
 
+    function handleBot() {
+        setModalBot(true);
+    }
     async function handleUsuario() {
         try {
             const response = await api.get("/users", { headers });
@@ -33,12 +39,16 @@ export default function Main() {
                     <img className="logo" src={logo} alt="logo salt" />
                 </div>
                 <div className="container-user">
+                    <img className="robo" src={robo} alt="icon robo" onClick={handleBot} />
+                    {modalBot && <Bot setModalBot={setModalBot} />}
                     <span>{user.name}</span>
                 </div>
             </header>
             <div className="container-main-components">
                 <Contacts />
                 <Messages />
+
+
             </div>
             <footer className="footer">
                 <div className="footer-social">
