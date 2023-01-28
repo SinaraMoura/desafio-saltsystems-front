@@ -13,18 +13,6 @@ export default function Contacts() {
         Authorization: `Bearer ${token}`
     }
 
-    useEffect(() => {
-        const listContacts = async () => {
-            try {
-                const response = await api.get('/contacts', { headers });
-                setContacts(response.data);
-            } catch (error) {
-                return;
-            }
-        }
-        listContacts();
-    })
-
     const handleClickContact = async (contact) => {
         try {
             const response = await api.get(`/messages/${contact.id}`, { headers });
@@ -35,7 +23,7 @@ export default function Contacts() {
             setComponentRender(true);
             setIdUser(contact.id);
         } catch (error) {
-            return;
+            toast.error(error?.response?.data?.message);
         }
     }
 
@@ -48,7 +36,7 @@ export default function Contacts() {
             <div className="container-list-contacts">
                 <div className="title">
                     <h1>Contatos</h1>
-                    <div className="title-link" onClick={handleNewContato}>Adicionar contato</div>
+                    <div className="title-link" onClick={() => handleNewContato()}>Adicionar contato</div>
                     {modalNewContact &&
                         <ModalNewContact setModalNewContact={setModalNewContact} />}
                 </div>

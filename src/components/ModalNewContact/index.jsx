@@ -9,7 +9,7 @@ import { getItem } from "../../Utils/storage";
 
 export default function ModalNewContact({ setModalNewContact }) {
     const [form, setForm] = useState({ name: '', phone_number: '' });
-    const { setMessages } = useContext(UserContext);
+    const { setMessages, setContacts, contacts } = useContext(UserContext);
     const token = getItem('token');
     const headers = {
         Authorization: `Bearer ${token}`
@@ -39,12 +39,12 @@ export default function ModalNewContact({ setModalNewContact }) {
         }
 
         try {
-            await api.post("/contacts", { ...form }, { headers });
+            const response = await api.post("/contacts", { ...form }, { headers });
             setForm({ name: '', phone_number: '' });
-
+            setContacts([...contacts, response.data[0],])
             toast.success('Contato adicionado!',
                 {
-                    position: "top-right",
+                    position: "bottom-right",
                     autoClose: 5000,
                     hideProgressBar: false,
                     closeOnClick: true,
@@ -54,12 +54,14 @@ export default function ModalNewContact({ setModalNewContact }) {
                     theme: "light"
                 });
         } catch (error) {
-            toast.error(error.message);
+            toast.error(error?.response?.data?.message);
         }
     }
+
     useEffect(() => {
         setMessages([]);
     }, []);
+
     return (
         <div className="container-form">
             <img className="close" src={close} alt="icon close" onClick={handleCloseModal} />

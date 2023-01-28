@@ -47,7 +47,7 @@ export default function Messages() {
             setMessages(responseListMessages.data)
             setInput('');
         } catch (error) {
-            toast.error(error.message);
+            toast.error(error?.response?.data?.message);
         }
     }
     return (

@@ -41,7 +41,7 @@ export default function SignIn() {
             setForm({ email: '', password: '' });
             navigate('/main');
         } catch (error) {
-            toast.error(error.message);
+            toast.error(error?.response?.data?.message);
         }
     }
     return (

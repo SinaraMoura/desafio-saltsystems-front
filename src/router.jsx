@@ -1,11 +1,16 @@
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Outlet, Route, Routes } from 'react-router-dom';
 import { useState } from 'react';
-import Contacts from './components/Contacts';
 import UserContext from './context/UserContext';
 import 'react-toastify/dist/ReactToastify.css';
 import SignIn from './Pages/SignIn';
 import SignUp from './Pages/SignUp';
 import Main from './Pages/Main';
+import { getItem } from './Utils/storage';
+
+function ProtectedRoutes({ redirectTo }) {
+    const isAuthenticated = getItem('token');
+    return isAuthenticated ? <Outlet /> : <Navigate to={redirectTo} />
+}
 
 export default function MainRouter() {
     const [idUser, setIdUser] = useState(0);
@@ -22,8 +27,11 @@ export default function MainRouter() {
                 <Route exact path='/sign-in' element={<SignIn />} />
                 <Route exact path='/' element={<SignIn />} />
                 <Route exact path='/sign-up' element={<SignUp />} />
-                <Route exact path='/main' element={<Main />} />
-                <Route exact path='/contacts' element={<Contacts />} />
+
+
+                <Route element={<ProtectedRoutes redirectTo="/" />}>
+                    <Route path='/main' element={<Main />} />
+                </Route>
             </Routes>
         </UserContext.Provider>
     )
