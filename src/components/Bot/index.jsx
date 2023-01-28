@@ -39,19 +39,19 @@ export default function Bot({ setModalBot }) {
         }
     }
     return (
-        <div className="container-messages">
+        <div className="container-messages-bot">
             <div className="info-contact">
                 <h1>SaltBurguer Bot</h1>
                 <img className="close-bot" src={close} alt="icon close" onClick={handleCloseModalBot} />
             </div>
-            <div className="messages">
+            <div className="messages-bot">
                 {messagesBot.map(message => {
-                    return <p className={message.id % 2 == 0 ? "rigth" : "left"} key={message.id}>{message.message} <span className="data_message">{`${new Date(message.data_message).getHours()}:${new Date(message.data_message).getMinutes()}`}</span></p>;
+                    return <div className={message.id % 2 == 0 ? "rigth" : "left"} key={message.id}>{message.message} <span className="data-message-bot">{`${new Date(message.data_message).getHours()}:${new Date(message.data_message).getMinutes()}`}</span></div>;
                 })}
             </div>
             <form onSubmit={handleSubmit}>
                 <input
-                    className="input-messages"
+                    className="input-messages-bot"
                     name="input"
                     value={input}
                     onChange={(e) => setInput(e.target.value)}

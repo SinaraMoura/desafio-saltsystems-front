@@ -59,7 +59,7 @@ export default function Messages() {
                     </div>
                     <div className="messages">
                         {messages.map(message => {
-                            return <p key={message.id}>{message.message} <span className="data_message">{`${new Date(message.data_message).getHours()}:${new Date(message.data_message).getMinutes()}`}</span></p>;
+                            return <p className="messages-text" key={message.id}>{message.message} <span className="data_message">{`${new Date(message.data_message).getHours()}:${new Date(message.data_message).getMinutes()}`}</span></p>;
                         })}
                     </div>
                     <form onSubmit={handleSubmit}>

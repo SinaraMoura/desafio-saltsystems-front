@@ -41,7 +41,7 @@ export default function Main() {
                 <div className="container-user">
                     <img className="robo" src={robo} alt="icon robo" onClick={handleBot} />
                     {modalBot && <Bot setModalBot={setModalBot} />}
-                    <span>{user.name}</span>
+                    <span className="container-user-span">{user.name}</span>
                 </div>
             </header>
             <div className="container-main-components">

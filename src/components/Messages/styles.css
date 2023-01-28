@@ -49,6 +49,14 @@
     border-radius: 8px;
 }
 
+.messages-text {
+    padding: 6px 7px 8px 9px;
+    background-color: #b0f7e2;
+    text-align: right;
+    border-radius: 10px;
+    margin: 0 0 10px 0;
+}
+
 .input-messages {
     width: 95%;
     padding: 0.5rem;
@@ -62,16 +70,4 @@
 
 .img {
     background-size: cover;
-}
-
-.rigth {
-    background-color: red;
-    text-align: right;
-}
-
-.left {
-    background-color: #483D8B;
-    border-radius: 8px;
-    text-align: left;
-    margin: 10px 500px 10px 0;
 }
